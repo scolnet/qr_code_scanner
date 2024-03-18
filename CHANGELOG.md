@@ -1,3 +1,6 @@
+## 1.0.1
+* [Android] fixed null pointer on engine detached. [#567](https://github.com/juliuscanute/qr_code_scanner/issues/567)
+
 ## 1.0.0
 Breaking changes:
 Minimum Flutter version is now Flutter 3.0.0 (Dart 2.17.0).
