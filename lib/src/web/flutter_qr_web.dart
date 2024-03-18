@@ -193,17 +193,11 @@ class _WebQrViewState extends State<WebQrView> {
       });
     }
 
-    try {
-      final code = jsQR(imgData.data, canvas.width, canvas.height);
-      // ignore: unnecessary_null_comparison
-      if (code != null && code.data != null) {
-        _scanUpdateController
-            .add(Barcode(code.data, BarcodeFormat.qrcode, code.data.codeUnits));
-      }
-    } on NoSuchMethodError {
-      // Do nothing, this exception occurs continously in web release when no
-      // code is found.
-      // NoSuchMethodError: method not found: 'get$data' on null
+    final code = jsQR(imgData.data, canvas.width, canvas.height);
+    // ignore: unnecessary_null_comparison
+    if (code != null) {
+      _scanUpdateController
+          .add(Barcode(code.data, BarcodeFormat.qrcode, code.data.codeUnits));
     }
   }
 
